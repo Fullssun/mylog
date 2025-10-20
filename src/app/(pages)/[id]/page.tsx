@@ -1,16 +1,17 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
 export default async function BlogPost(props: PageProps<'/[id]'>) {
   const { id } = await props.params;
-  console.log(id)
-  const res = await fetch(`/api/get/${id}`, {
-    cache: "no-store", // SSR 매 요청마다 갱신
-  });
-
-  console.log(res)
-
-  if (!res.ok) {
+  const filePath = path.join(process.cwd(), "posts", `${id}.md`);
+  if (!fs.existsSync(filePath)) {
     return <div>파일을 불러올 수 없습니다.</div>;
   }
-
-  const data = await res.json();
-  return <h1>Blog post: {id}</h1>
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const { data: meta, content } = matter(fileContent);
+  if (!fs.existsSync(filePath)) {
+    return <div>파일을 불러올 수 없습니다.</div>;
+  }
+  return <h1>Blog post: {content}</h1>
 }
