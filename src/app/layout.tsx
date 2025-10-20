@@ -7,6 +7,7 @@ import Footer from "@/widgets/nav/components/Footer";
 import fs from "fs";
 import path from "path";
 import StoreProvider from "./StoreProvider";
+import Layout from "@/shares/ui/Layout";
 
 // 파일 읽기
 const getBasicData = async () => {
@@ -41,7 +42,9 @@ export default async function RootLayout({
         <StoreProvider>
           <StyledComponentsRegistry>
             <Header name={data.name} />
-            {children}
+            <Layout>
+              {children}
+            </Layout>
             <Footer name={data.name} />
           </StyledComponentsRegistry>
         </StoreProvider>
