@@ -11,12 +11,9 @@ export default async function BlogPost(props: PageProps<'/[id]'>) {
   }
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data: meta, content } = matter(fileContent);
-  if (!fs.existsSync(filePath)) {
-    return <div>파일을 불러올 수 없습니다.</div>;
-  }
   return (
     <>
-      <h1>Blog post: {meta.title} {content} {meta.date}</h1>
+      <h1>{meta.title} {meta.date}</h1>
       <MarkdownViewer content={content} />
     </>
 
