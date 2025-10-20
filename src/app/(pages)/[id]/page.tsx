@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import MarkdownViewer from "@/widgets/write/components/MarkdownViewer";
 
 export default async function BlogPost(props: PageProps<'/[id]'>) {
   const { id } = await props.params;
@@ -13,5 +14,11 @@ export default async function BlogPost(props: PageProps<'/[id]'>) {
   if (!fs.existsSync(filePath)) {
     return <div>파일을 불러올 수 없습니다.</div>;
   }
-  return <h1>Blog post: {content} {meta.date}</h1>
+  return (
+    <>
+      <h1>Blog post: {meta.title} {content} {meta.date}</h1>
+      <MarkdownViewer content={content} />
+    </>
+
+  )
 }

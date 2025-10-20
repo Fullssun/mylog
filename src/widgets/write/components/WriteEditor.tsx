@@ -3,9 +3,6 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import styled from 'styled-components';
-// import { NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import path from "path";
 
 // Markdown 에디터
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
@@ -14,8 +11,8 @@ const Box = styled.div`
   width: 1000px;
 `
 
-const StyledMDEditor = styled(MDEditor)`
-  height: 500px;
+const TitleInput = styled.input`
+  width: 100%;
 `
 
 const SaveButton = styled.button`
@@ -39,8 +36,11 @@ export default function WriteEditor() {
 
   return (
     <Box>
-
-      <StyledMDEditor
+      <TitleInput
+        type="text"
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <MDEditor
         value={content}
         onChange={(e) => setContent(e)}
         style={{
