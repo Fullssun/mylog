@@ -1,4 +1,7 @@
-export default async function postData(url: string, data: any) {
+export default async function postData<TData extends object, TResponse>(
+    url: string,
+    data: TData
+): Promise<TResponse> {
     const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -7,5 +10,5 @@ export default async function postData(url: string, data: any) {
         body: JSON.stringify(data),
     });
     const result = await res.json();
-    return result
+    return result as Promise<TResponse>
 }

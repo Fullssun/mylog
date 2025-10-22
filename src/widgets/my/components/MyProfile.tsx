@@ -74,6 +74,24 @@ type Props = {
   }
 }
 
+interface AuthRequest {
+  id: string;
+}
+
+interface AuthResponse {
+  message: string;
+}
+
+interface BlogRequest {
+  name: string;
+}
+
+interface BlogResponse {
+  message: string;
+}
+
+
+
 export default function MyProfile({ auth, site }: Props) {
 
   const nameRef = useRef<HTMLInputElement>(null);
@@ -88,7 +106,7 @@ export default function MyProfile({ auth, site }: Props) {
   const handleNameUpdate = async () => {
     try {
       const data = { id: name }
-      const result = await postData('/api/post/auth/id', data);
+      const result = await postData<AuthRequest, AuthResponse>('/api/post/auth/id', data);
       const { message } = result;
       alert(message);
       setIsNameChange(false);
@@ -100,7 +118,7 @@ export default function MyProfile({ auth, site }: Props) {
   const handleSiteNameUpdate = async () => {
     try {
       const data = { name: siteName }
-      const result = await postData('/api/post/blog/name', data);
+      const result = await postData<BlogRequest, BlogResponse>('/api/post/blog/name', data);
       const { message } = result;
       alert(message);
       setIsSiteNameChange(false);
@@ -109,13 +127,13 @@ export default function MyProfile({ auth, site }: Props) {
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isNameChange) {
       nameRef.current?.focus();
     }
   }, [isNameChange])
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isSiteNameChange) {
       siteRef.current?.focus();
     }
@@ -135,7 +153,7 @@ export default function MyProfile({ auth, site }: Props) {
           }
           {isNameChange
             ?
-            <ChangeButton style={{backgroundColor:'#007bff', color:'#ffffff'}} onClick={handleNameUpdate}>저장</ChangeButton>
+            <ChangeButton style={{ backgroundColor: '#007bff', color: '#ffffff' }} onClick={handleNameUpdate}>저장</ChangeButton>
             :
             <ChangeButton onClick={() => setIsNameChange(true)}>수정</ChangeButton>
           }
@@ -153,7 +171,7 @@ export default function MyProfile({ auth, site }: Props) {
           }
           {isSiteNameChange
             ?
-            <ChangeButton style={{backgroundColor:'#007bff', color:'#ffffff'}} onClick={handleSiteNameUpdate}>저장</ChangeButton>
+            <ChangeButton style={{ backgroundColor: '#007bff', color: '#ffffff' }} onClick={handleSiteNameUpdate}>저장</ChangeButton>
             :
             <ChangeButton onClick={() => setIsSiteNameChange(true)}>수정</ChangeButton>
           }
