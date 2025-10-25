@@ -22,10 +22,27 @@ const TitleInput = styled.input`
   background-color: var(--white);
   padding-bottom: 5px;
   border-bottom: 1px solid var(--gray);
+  transition: border 0.3s;
+
+  &:focus {
+    border-bottom: 1px solid var(--black);
+  }
+`
+
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 `
 
 const SaveButton = styled.button`
   margin-top: 1rem;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: var(--gray);
+  color: var(--black);
 `
 
 export default function WriteEditor() {
@@ -43,11 +60,17 @@ export default function WriteEditor() {
     });
     const data = await res.json();
     alert(data.message);
-    router.push('/')
+    if (res.status === 200) {
+      router.push('/')
+    }
   };
 
   return (
     <Box>
+      <ButtonBox>
+        <SaveButton onClick={() => savePost()}>저장</SaveButton>
+      </ButtonBox>
+
       <TitleInput
         placeholder='제목'
         type="text"
@@ -56,8 +79,8 @@ export default function WriteEditor() {
       <MDEditor
         value={content}
         onChange={(e) => setContent(e)}
+        height={500}
       />
-      <SaveButton onClick={() => savePost()}>저장</SaveButton>
     </Box>
   );
 }

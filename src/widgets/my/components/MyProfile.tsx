@@ -6,6 +6,9 @@ import styled from "styled-components"
 
 const Widget = styled.div`
   width: 100%;
+  padding: 20px;
+  border: 1px solid var(--gray);
+  border-radius: 15px;
 `
 
 const CategoryBox = styled.div`
@@ -33,15 +36,15 @@ const CategoryContent = styled.div`
   width: 100%;
   font-size: 22px;
   color: var(--black);
-  padding: 10px 0;
+  padding: 10px 10px;
   padding-top: 0;
-  border-bottom: 1px solid var(--gray);
+  /* border-bottom: 1px solid var(--gray); */
 `
 
 const ChangeInput = styled.input`
   width: 100%;
   font-size: 22px;
-  padding: 10px 0;
+  padding: 10px 10px;
   padding-top: 0;
   border: none;
   border-bottom: 1px solid var(--gray);

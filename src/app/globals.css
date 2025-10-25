@@ -10,7 +10,7 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --gray: #e5e5e5;
+  --gray: #f2f2f2;
 }
 
 /* dark 테마를 class로 적용 */
@@ -27,9 +27,6 @@ body {
 }
 
 body {
-  /* color: var(--foreground); */
-  /* background: var(--background); */
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: 'Pretendard', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
