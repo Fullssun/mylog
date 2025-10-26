@@ -93,9 +93,7 @@ interface BlogResponse {
   message: string;
 }
 
-
-
-export default function MyProfile({ auth, site }: Props) {
+export function MyProfile({ auth, site }: Props) {
 
   const nameRef = useRef<HTMLInputElement>(null);
   const siteRef = useRef<HTMLInputElement>(null);
@@ -109,8 +107,8 @@ export default function MyProfile({ auth, site }: Props) {
   const handleNameUpdate = async () => {
     try {
       const data = { id: name }
-      const result = await postData<AuthRequest, AuthResponse>('/api/post/auth/id', data);
-      const { message } = result;
+      const res = await postData<AuthRequest, AuthResponse>('/api/post/auth/id', data);
+      const { message } = await res.json();
       alert(message);
       setIsNameChange(false);
     } catch (error) {
@@ -121,8 +119,8 @@ export default function MyProfile({ auth, site }: Props) {
   const handleSiteNameUpdate = async () => {
     try {
       const data = { name: siteName }
-      const result = await postData<BlogRequest, BlogResponse>('/api/post/my/name', data);
-      const { message } = result;
+      const res = await postData<BlogRequest, BlogResponse>('/api/post/my/name', data);
+      const { message } = await res.json();
       alert(message);
       setIsSiteNameChange(false);
     } catch (error) {

@@ -79,7 +79,7 @@ type HeaderProps = {
   storedTheme: string | undefined;
 }
 
-export default function Header({ name, storedTheme }: HeaderProps) {
+export function Header({ name, storedTheme }: HeaderProps) {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch<AppDispatch>();
 

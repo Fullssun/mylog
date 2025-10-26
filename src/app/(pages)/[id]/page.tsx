@@ -1,4 +1,4 @@
-import BoardPostContent from "@/widgets/board/components/BoardPostContent";
+import { BoardPostContent } from "@/widgets";
 
 // 블로그 포스트
 export default async function BlogPost(props: PageProps<'/[id]'>) {

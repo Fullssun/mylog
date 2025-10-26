@@ -16,7 +16,7 @@ const HomeLink = styled(Link)`
   color: var(--black);
 `
 
-export default function BoardNotFound() {
+export function BoardNotFound() {
   return (
     <Widget>
       <NoticeText>

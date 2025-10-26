@@ -1,7 +1,11 @@
+export interface TypedResponse<T> extends Response {
+    json(): Promise<T>;
+}
+
 export default async function postData<TData extends object, TResponse>(
     url: string,
     data: TData
-): Promise<TResponse> {
+): Promise<TypedResponse<TResponse>> {
     const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -9,6 +13,5 @@ export default async function postData<TData extends object, TResponse>(
         },
         body: JSON.stringify(data),
     });
-    const result = await res.json();
-    return result as Promise<TResponse>
+    return res as TypedResponse<TResponse>;
 }

@@ -18,9 +18,9 @@ interface Props {
   content: string;
 }
 
-export default function MarkdownViewer({ content }: Props) {
+export function MarkdownViewer({ content }: Props) {
   return (
-    <ViewerBox data-color-mode="light">
+    <ViewerBox>
       <MarkdownPreview source={content} />
     </ViewerBox>
   );

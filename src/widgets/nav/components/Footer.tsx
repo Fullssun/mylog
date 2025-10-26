@@ -52,7 +52,7 @@ type FooterProps = {
   name: string;
 }
 
-export default function Footer({ name }: FooterProps) {
+export function Footer({ name }: FooterProps) {
 
   const theme = useSelector((state: RootState) => state.theme.theme);
 

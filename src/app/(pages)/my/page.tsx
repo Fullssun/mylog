@@ -1,6 +1,6 @@
-import MyProfile from "@/widgets/my/components/MyProfile";
 import path from "path";
 import fs from "fs";
+import { MyProfile } from "@/widgets";
 
 const getAuthData = async () => {
   const filePath = path.join(process.cwd(), "blog", "auth.json");

@@ -4,9 +4,9 @@ import path from "path";
 import { readdirSync } from "fs";
 
 export async function POST(request: Request) {
-  const { filename, content, meta } = await request.json();
+  const { title, content, date } = await request.json();
 
-  if (!filename || !content) {
+  if (!title || !content) {
     return NextResponse.json({ message: "제목과 내용을 입력해주세요." }, { status: 400 });
   }
 
@@ -23,13 +23,10 @@ export async function POST(request: Request) {
   const newId = ids.length > 0 ? Math.max(...ids) + 1 : 1
 
   const fileContent: Record<string, string | unknown> = {}
-
-  if (meta) {
-    for (const [key, value] of Object.entries(meta)) {
-      fileContent[key] = value;
-    }
-  }
-  fileContent['content'] = content
+  fileContent['title'] = title;
+  fileContent['date'] = date;
+  fileContent['content'] = content;
+  
   const filePath = path.join(dir, `${newId}.json`);
   await writeFile(filePath, JSON.stringify(fileContent, null, 2), { encoding: "utf-8" });
   return NextResponse.json({ message: "저장되었습니다.", path: filePath });
