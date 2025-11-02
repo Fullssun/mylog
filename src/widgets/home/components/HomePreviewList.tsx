@@ -41,7 +41,7 @@ const PostLink = styled(Link)`
 const PostMainImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 300px;
 `
 
 const PostMainImage = styled(Image)`
@@ -81,9 +81,7 @@ type Props = {
 }
 
 export function HomePreviewList({ data }: Props) {
-
   const searchListData = useSelector((state: RootState) => state.home.searchListData);
-  const boardListData = useSelector((state: RootState) => state.home.boardListData);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(()=>{

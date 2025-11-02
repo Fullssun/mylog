@@ -1,17 +1,20 @@
 import { MarkdownViewer } from "@/shares";
-import { BoardTitle } from "@/features";
+import { BoardManagement } from "./BoardManagement";
 
 type Props = {
   date: string;
   title: string;
   content: string;
+  name: string;
+  email: string;
 }
 
-export async function BoardPostContent({ date, title, content }: Props) {
+export async function BoardPostContent({ name, email, date, title, content }: Props) {
   return (
     <>
-      <BoardTitle date={date}>{title}</BoardTitle>
+      <BoardManagement title={title} date={date} name={name} />
       <MarkdownViewer content={content} />
+      {email}
     </>
   );
 }

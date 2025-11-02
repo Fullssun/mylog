@@ -18,8 +18,9 @@ const Widget = styled.div`
 
 const UserBox = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  align-items: flex-end;
   border-bottom: 1px solid var(--gray);
   padding-bottom: 1rem;
 `

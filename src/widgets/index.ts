@@ -3,6 +3,7 @@ export { Header } from './nav'
 export { Footer } from './nav'
 
 // board
+export { BoardManagement } from './board'
 export { BoardNotFound } from './board'
 export { BoardPostContent } from './board'
 
