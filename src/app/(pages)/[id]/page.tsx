@@ -31,7 +31,7 @@ export async function generateMetadata(props: PageProps<'/[id]'>): Promise<Metad
 
   return {
     title: data.title,
-    description: "DB가 필요 없는 나만의 블로그",
+    description: data.content,
   };
 }
 

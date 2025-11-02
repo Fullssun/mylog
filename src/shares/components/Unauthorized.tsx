@@ -15,7 +15,7 @@ const Message = styled.div`
 `
 
 const HomeLink = styled(Link)`
-  
+  text-decoration: underline;
 `
 
 export function Unauthorized() {
