@@ -4,16 +4,13 @@ import { BoardNotFound } from "./BoardNotFound";
 import { MarkdownViewer } from "@/shares";
 import { BoardTitle } from "@/features";
 
-export async function BoardPostContent({ id }: { id: number }) {
-  const filePath = path.join(process.cwd(), "post", `${id}.json`);
+type Props = {
+  date: string;
+  title: string;
+  content: string;
+}
 
-  if (!fs.existsSync(filePath)) {
-    return <BoardNotFound />;
-  }
-
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { date, title, content } = JSON.parse(fileContent);
-
+export async function BoardPostContent({ date, title, content }: Props) {
   return (
     <>
       <BoardTitle date={date}>{title}</BoardTitle>

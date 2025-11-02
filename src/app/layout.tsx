@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const data = await getBasicData();
   return {
     title: data?.name || "MyLog",
-    description: "DB가 필요 없는 나만의 블로그",
+    description: "DB 없이 이용하는 나만의 블로그",
   };
 }
 
@@ -39,7 +39,7 @@ export default async function RootLayout({
     <html
       lang="ko"
       className={theme === "dark" ? "dark" : "light"}
-      >
+    >
       <head>
         {/* 구글 아이콘 / Google Icon */}
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
