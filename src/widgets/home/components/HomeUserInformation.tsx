@@ -36,14 +36,20 @@ const LinkBox = styled.div`
   gap: 10px;
 `
 
-const SvgIcon = styled(Image)`
-`
-
 const IconLink = styled(Link)`
   cursor: pointer;
   display: flex;
   user-select: none;
   transition: background-color 0s;
+  padding: 5px;
+  border-radius: 5px;
+
+  &:hover{
+    background-color: var(--gray);
+  }
+`
+
+const SvgIcon = styled(Image)`
 `
 
 type UserDataType = {

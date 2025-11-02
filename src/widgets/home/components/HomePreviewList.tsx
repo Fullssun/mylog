@@ -81,7 +81,7 @@ export function HomePreviewList({ data }: Props) {
               <PostLink href={`/${v.id}`}>
                 {
                   firstImg ?
-                    <PostDefaultImage src={firstImg} alt="default_img" width={1000} height={400} />
+                    <PostDefaultImage src={firstImg} alt="default_img" width={1000} height={400} unoptimized />
                     :
                     <></>
                 }
