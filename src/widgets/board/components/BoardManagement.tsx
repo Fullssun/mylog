@@ -8,7 +8,7 @@ import styled from "styled-components";
 const Widget = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1.5rem;
   margin-bottom: 3rem;
   padding-bottom: 15px;
   border-bottom: 1px solid var(--white-lightgray);
@@ -59,6 +59,9 @@ type Props = {
 }
 
 export function BoardManagement({ id, name, title, date }: Props) {
+
+  const isDev = process.env.NODE_ENV === 'development';
+
   return (
     <Widget>
       <BoardTitle>{title}</BoardTitle>
@@ -68,9 +71,15 @@ export function BoardManagement({ id, name, title, date }: Props) {
           <BoardDot />
           <BoardDate>{timeAgo(date)}</BoardDate>
         </BoardMetaBox>
-        <BoardButtonBox>
-          <BoardButton href={`/write/${id}`}>수정</BoardButton>
-        </BoardButtonBox>
+        {
+          isDev ?
+            <BoardButtonBox>
+              <BoardButton href={`/write/${id}`}>수정</BoardButton>
+            </BoardButtonBox>
+            :
+            <></>
+        }
+
       </BoardInfoBox>
     </Widget>
   )
