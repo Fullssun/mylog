@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import styled from "styled-components"
 import { RootState } from "../lib/redux/store"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const Component = styled(Link)`
   cursor: pointer;
@@ -36,17 +37,26 @@ type Props = {
 
 export function SvgIcon({ href, light, dark, alt }: Props) {
   const theme = useSelector((state: RootState) => state.theme.theme);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // SSR 때는 아무것도 렌더하지 않음
+
   return (
     <Component href={href} target="_blank">
-      {theme === 'dark' ?
+      {theme === 'dark' ? (
         <SvgWrapper>
           <Svg alt={alt} src={light} fill />
         </SvgWrapper>
-        :
+
+      ) : (
         <SvgWrapper>
           <Svg alt={alt} src={dark} fill />
         </SvgWrapper>
-      }
+      )}
     </Component>
-  )
+  );
 }
