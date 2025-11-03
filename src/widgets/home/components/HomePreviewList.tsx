@@ -73,7 +73,7 @@ const PostInforBox = styled.div`
 `
 
 const PostDate = styled.div`
-  color: var(--white-lightgray);
+  color: var(--white-lightgray-text);
 `
 
 type Props = {

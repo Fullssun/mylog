@@ -26,7 +26,7 @@ const BoardMetaBox = styled.div`
 `
 
 const BoardDot = styled.div`
-  border: 1px solid var(--white-gray);
+  border: 1px solid var(--white-lightgray-text);
   height: 1px;
   border-radius: 50%;
 `

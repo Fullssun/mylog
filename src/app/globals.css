@@ -13,6 +13,7 @@
   --gray: #f2f2f2;
   --white-gray: #7d7d7d;
   --white-lightgray: #f3f3f3;
+  --white-lightgray-text: #dfdfdf;
   --blue: #007bff;
 }
 
@@ -23,6 +24,7 @@ html.dark {
   --gray: #383838;
   --white-gray: #ffffff;
   --white-lightgray: #ffffff;
+  --white-lightgray-text: #ffffff;
 }
 
 html,
