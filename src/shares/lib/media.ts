@@ -7,7 +7,7 @@ const sizes: Record<DeviceType, number> = {
   phone: 800,
 };
 
-type StyledInterpolation = Interpolation<{}>;
+type StyledInterpolation = Interpolation<object>;
 
 const media = Object.entries(sizes).reduce((acc, [key, value]) => {
   return {
