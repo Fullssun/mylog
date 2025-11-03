@@ -54,6 +54,7 @@ export default async function BlogPost(props: PageProps<'/[id]'>) {
   // await new Promise((resolve) => setTimeout(resolve, 500));
   return (
     <BoardPostContent
+      id={Number(id)}
       date={boardData.date}
       title={boardData.title}
       content={boardData.content}

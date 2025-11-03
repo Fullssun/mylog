@@ -1,8 +1,9 @@
 'use client'
 
-import { BoardDate, BoardName, BoardTitle } from "@/features"
-import { timeAgo } from "@/shares/lib/date"
-import styled from "styled-components"
+import { BoardDate, BoardName, BoardTitle } from "@/features";
+import { timeAgo } from "@/shares/lib/date";
+import Link from "next/link";
+import styled from "styled-components";
 
 const Widget = styled.div`
   display: flex;
@@ -13,34 +14,64 @@ const Widget = styled.div`
   border-bottom: 1px solid var(--white-lightgray);
 `
 
-const BoardOtherBox = styled.div`
+const BoardInfoBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const BoardMetaBox = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 8px;
 `
 
 const BoardDot = styled.div`
-  border: 1px solid var(--white-lightgray);
+  border: 1px solid var(--white-gray);
   height: 1px;
   border-radius: 50%;
 `
 
+const BoardButtonBox = styled.div`
+  
+`
+
+const BoardButton = styled(Link)`
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+  background-color: #f3f3f3;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #dedede;
+  }
+`
+
 type Props = {
+  id: number;
   name: string;
   title: string;
   date: string;
 }
 
-export function BoardManagement({ name, title, date }: Props) {
+export function BoardManagement({ id, name, title, date }: Props) {
   return (
     <Widget>
       <BoardTitle>{title}</BoardTitle>
-      <BoardOtherBox>
-        <BoardName>{name}</BoardName>
-        <BoardDot />
-        <BoardDate>{timeAgo(date)}</BoardDate>
-      </BoardOtherBox>
+      <BoardInfoBox>
+        <BoardMetaBox>
+          <BoardName>{name}</BoardName>
+          <BoardDot />
+          <BoardDate>{timeAgo(date)}</BoardDate>
+        </BoardMetaBox>
+        <BoardButtonBox>
+          <BoardButton href={`/write/${id}`}>수정</BoardButton>
+        </BoardButtonBox>
+      </BoardInfoBox>
     </Widget>
   )
 }

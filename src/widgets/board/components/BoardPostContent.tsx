@@ -1,7 +1,9 @@
 import { MarkdownViewer } from "@/shares";
 import { BoardManagement } from "./BoardManagement";
+import { BoardComment } from "./BoardComment";
 
 type Props = {
+  id: number;
   date: string;
   title: string;
   content: string;
@@ -9,12 +11,12 @@ type Props = {
   email: string;
 }
 
-export async function BoardPostContent({ name, email, date, title, content }: Props) {
+export async function BoardPostContent({ id, name, email, date, title, content }: Props) {
   return (
     <>
-      <BoardManagement title={title} date={date} name={name} />
+      <BoardManagement id={id} title={title} date={date} name={name} />
       <MarkdownViewer content={content} />
-      {email}
+      <BoardComment name={name} email={email} />
     </>
   );
 }

@@ -37,13 +37,21 @@ const ButtonBox = styled.div`
 `
 
 const Button = styled.button`
-  margin-top: 1rem;
   border: none;
   border-radius: 20px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   cursor: pointer;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+  background-color: #f3f3f3;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #dedede;
+  }
 `
+
 
 const SaveButton = styled(Button)`
   background-color: var(--gray);
@@ -146,9 +154,7 @@ export function WriteEditor({ id, postTitle, postContent, postDate }: Props) {
               <SaveButton onClick={() => handleSavePost()}>저장</SaveButton>
             </>
         }
-
       </ButtonBox>
-
       <TitleInput
         placeholder='제목'
         type="text"

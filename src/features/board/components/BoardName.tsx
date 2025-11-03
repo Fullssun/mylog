@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Component = styled.div`
   display: flex;
-  color: var(--white-lightgray);
+  color: var(--white-gray);
 `
 
 const Name = styled.div`
