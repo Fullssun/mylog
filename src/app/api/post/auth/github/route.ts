@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   const authData = JSON.parse(fileData);
 
   // id 값 업데이트
-  authData.github = github;
+  authData.github = github.indexOf('https://') > -1 || github.indexOf('http://') > -1 ? github : `https://${github}`;
 
   // 수정된 내용 다시 쓰기 (들여쓰기 2칸 유지)
   fs.writeFileSync(filePath, JSON.stringify(authData), "utf-8");

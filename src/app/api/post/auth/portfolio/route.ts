@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   const authData = JSON.parse(fileData);
 
   // id 값 업데이트
-  authData.portfolio = portfolio;
+  authData.portfolio = portfolio.indexOf('https://') > -1 || portfolio.indexOf('http://') > -1 ? portfolio : `https://${portfolio}`;
 
   // 수정된 내용 다시 쓰기 (들여쓰기 2칸 유지)
   fs.writeFileSync(filePath, JSON.stringify(authData), "utf-8");
