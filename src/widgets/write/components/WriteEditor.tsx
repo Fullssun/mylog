@@ -39,7 +39,7 @@ const ButtonBox = styled.div`
 const Button = styled.button`
   border: none;
   border-radius: 20px;
-  padding: 6px 12px;
+  padding: 6px 18px;
   cursor: pointer;
   border: 1px solid #efefef;
   box-sizing: border-box;
@@ -48,7 +48,7 @@ const Button = styled.button`
   font-size: 14px;
 
   &:hover {
-    background-color: #dedede;
+    background-color: #dfdfdf;
   }
 `
 

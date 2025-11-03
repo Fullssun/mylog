@@ -1,4 +1,4 @@
-import { BoardNotFound, BoardPostContent } from "@/widgets";
+import { BoardComment, BoardNotFound, BoardContent, BoardManagement } from "@/widgets";
 import path from "path";
 import fs from 'fs';
 import { Metadata } from "next";
@@ -53,13 +53,20 @@ export default async function BlogPost(props: PageProps<'/[id]'>) {
   // 테스트용 인위적 지연
   // await new Promise((resolve) => setTimeout(resolve, 500));
   return (
-    <BoardPostContent
-      id={Number(id)}
-      date={boardData.date}
-      title={boardData.title}
-      content={boardData.content}
-      name={userData.id}
-      email={userData.email}
-    />
+    <>
+      {/* 제목 */}
+      <BoardManagement
+        id={Number(id)}
+        title={boardData.title}
+        date={boardData.date}
+        name={userData.id} />
+      {/* 본문 */}
+      <BoardContent
+        content={boardData.content} />
+      {/* 이메일 */}
+      <BoardComment
+        name={userData.id}
+        email={userData.email} />
+    </>
   );
 }

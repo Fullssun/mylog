@@ -1,4 +1,4 @@
 export { BoardManagement } from './BoardManagement'
 export { BoardNotFound } from './BoardNotFound'
-export { BoardPostContent } from './BoardPostContent'
+export { BoardContent } from './BoardContent'
 export { BoardComment } from './BoardComment'

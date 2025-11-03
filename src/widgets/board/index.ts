@@ -1,4 +1,4 @@
 export { BoardManagement } from './components'
 export { BoardNotFound } from './components'
-export { BoardPostContent } from './components'
+export { BoardContent } from './components'
 export { BoardComment } from './components'

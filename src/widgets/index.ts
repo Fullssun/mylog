@@ -5,7 +5,7 @@ export { Footer } from './nav'
 // board
 export { BoardManagement } from './board'
 export { BoardNotFound } from './board'
-export { BoardPostContent } from './board'
+export { BoardContent } from './board'
 export { BoardComment } from './board'
 
 // write

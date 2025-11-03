@@ -32,13 +32,13 @@ const BoardDot = styled.div`
 `
 
 const BoardButtonBox = styled.div`
-  
+  display: flex;
 `
 
 const BoardButton = styled(Link)`
   border: none;
   border-radius: 20px;
-  padding: 6px 12px;
+  padding: 6px 18px;
   cursor: pointer;
   border: 1px solid #efefef;
   box-sizing: border-box;
@@ -47,7 +47,7 @@ const BoardButton = styled(Link)`
   font-size: 14px;
 
   &:hover {
-    background-color: #dedede;
+    background-color: #dfdfdf;
   }
 `
 
